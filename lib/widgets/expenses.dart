@@ -52,6 +52,7 @@ class _ExpensesState extends State<Expenses> {
       builder: (ctx) => NewExpense(
         onAddExpense: registerExpense,
       ),
+      isScrollControlled: true,
     );
   }
 
