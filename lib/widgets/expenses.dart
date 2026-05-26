@@ -26,7 +26,8 @@ class _ExpensesState extends State<Expenses> {
     });
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        duration: Duration(seconds: 3),
+        duration: Duration(milliseconds: 1200),
+        persist: false,
         content: Text('Expense Deleted'),
         action: SnackBarAction(
           label: 'Undo',
@@ -79,9 +80,10 @@ class _ExpensesState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
-    Widget mainContent = const Center(
+    Widget mainContent = Center(
       child: Text(
         'No expenses found. Start adding some!',
+        style: Theme.of(context).textTheme.headlineMedium,
       ),
     );
 
@@ -93,8 +95,22 @@ class _ExpensesState extends State<Expenses> {
     }
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ExpenseTracker'),
+        centerTitle: true,
+        title: const Text(
+          'ExpenseTracker',
+          style: TextStyle(
+            letterSpacing: 1.1,
+          ),
+        ),
         actions: [
+          Icon(
+            MediaQuery.of(context).platformBrightness == Brightness.dark
+                ? Icons.dark_mode
+                : Icons.light_mode,
+          ),
+          const SizedBox(
+            width: 10,
+          ),
           IconButton(
             onPressed: _openAddExpenseOverlay,
             icon: const Icon(Icons.add),

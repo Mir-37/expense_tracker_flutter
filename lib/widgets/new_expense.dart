@@ -229,7 +229,7 @@ class _NewExpenseState extends State<NewExpense> {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.pinkAccent,
+                  backgroundColor: Theme.of(context).primaryColor,
                 ),
                 onPressed: () => {
                   // print(double.tryParse(_amountController.text)),

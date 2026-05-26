@@ -13,18 +13,18 @@ class ExpenseItem extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          // boxShadow: [
-          //   BoxShadow(
-          //     color: kColorScheme.surfaceTint,
-          //     spreadRadius: 0.5,
-          //     blurRadius: 0.3,
-          //     offset: Offset.fromDirection(1.0),
-          //   ),
-          // ],
+          boxShadow: [
+            BoxShadow(
+              color: kColorScheme.surfaceTint,
+              spreadRadius: 0.7,
+              blurRadius: 0.3,
+              offset: Offset.fromDirection(1.0),
+            ),
+          ],
           // gradient: LinearGradient(
           //   colors: [
           //     kColorScheme.tertiaryFixedDim.withAlpha(95),
-          //     kColorScheme.secondaryFixedDim.withAlpha(55),
+          //     // kColorScheme.secondaryFixedDim.withAlpha(55),
           //     kColorScheme.tertiaryFixedDim.withAlpha(150),
           //   ],
           // ),
@@ -36,26 +36,45 @@ class ExpenseItem extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Text(expense.title),
+              const SizedBox(
+                height: 4,
+              ),
+              Row(
+                children: [
+                  const Spacer(),
+                  Icon(
+                    categoryIcons[expense.category],
+                  ),
+                ],
+              ),
+
+              Row(
+                children: [
+                  Text(
+                    expense.title,
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                ],
+              ),
               const SizedBox(
                 height: 4,
               ),
               Row(
                 children: [
                   Text(
-                    '\$${expense.amount.toStringAsFixed(2)}',
+                    'Spent: \$${expense.amount.toStringAsFixed(2)}',
+                    style: Theme.of(context).textTheme.titleMedium,
                   ),
+                  const SizedBox(
+                    width: 25,
+                  ),
+
                   const Spacer(),
                   Row(
                     children: [
-                      Icon(
-                        categoryIcons[expense.category],
-                      ),
-                      const SizedBox(
-                        width: 8,
-                      ),
                       Text(
-                        expense.formattedDate,
+                        'Spent at: ${expense.formattedDate}',
+                        style: Theme.of(context).textTheme.titleMedium,
                       ),
                     ],
                   ),
