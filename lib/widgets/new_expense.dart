@@ -76,7 +76,7 @@ class _NewExpenseState extends State<NewExpense> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
-        duration: const Duration(seconds: 10),
+        duration: const Duration(seconds: 2),
         margin: const EdgeInsets.all(20),
       ),
     );
