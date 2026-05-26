@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:udemy_flutter_4/main.dart';
 import 'package:udemy_flutter_4/models/expense.dart';
 
 class ExpenseItem extends StatelessWidget {
@@ -12,15 +13,21 @@ class ExpenseItem extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            colors: [
-              Color.fromARGB(249, 248, 73, 132),
-              Color.fromARGB(229, 228, 73, 112),
-              Color.fromARGB(179, 233, 41, 105),
-            ],
-          ),
+          // boxShadow: [
+          //   BoxShadow(
+          //     color: kColorScheme.surfaceTint,
+          //     spreadRadius: 0.5,
+          //     blurRadius: 0.3,
+          //     offset: Offset.fromDirection(1.0),
+          //   ),
+          // ],
+          // gradient: LinearGradient(
+          //   colors: [
+          //     kColorScheme.tertiaryFixedDim.withAlpha(95),
+          //     kColorScheme.secondaryFixedDim.withAlpha(55),
+          //     kColorScheme.tertiaryFixedDim.withAlpha(150),
+          //   ],
+          // ),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(

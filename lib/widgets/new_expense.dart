@@ -71,7 +71,7 @@ class _NewExpenseState extends State<NewExpense> {
             const Text('Expense added to the list successfully!'),
           ],
         ),
-        backgroundColor: Colors.pinkAccent,
+        // backgroundColor: Colors.pinkAccent,
         behavior: SnackBarBehavior.floating,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
