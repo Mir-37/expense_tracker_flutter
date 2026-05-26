@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:udemy_flutter_4/widgets/chart/chart.dart';
 import 'package:udemy_flutter_4/widgets/expenses_list/expenses_list.dart';
 import 'package:udemy_flutter_4/models/expense.dart';
 import 'package:udemy_flutter_4/widgets/new_expense.dart';
@@ -43,25 +44,25 @@ class _ExpensesState extends State<Expenses> {
 
   final List<Expense> _registeredExpenses = [
     Expense(
-      title: 'Flutter hello',
+      title: 'Burger at BFC',
       amount: 190,
       date: DateTime.now(),
       category: Category.food,
     ),
     Expense(
-      title: 'Flutter hello 2',
+      title: 'Ciggarettes during break',
       amount: 120,
       date: DateTime.now(),
       category: Category.leisure,
     ),
     Expense(
-      title: 'Flutter hello 3',
+      title: 'Chanda at work',
       amount: 130,
       date: DateTime.now(),
       category: Category.work,
     ),
     Expense(
-      title: 'Flutter hello 4',
+      title: 'Rickshaw to work',
       amount: 140,
       date: DateTime.now(),
       category: Category.travel,
@@ -119,7 +120,35 @@ class _ExpensesState extends State<Expenses> {
       ),
       body: Column(
         children: [
-          const Text('The chart'),
+          const SizedBox(
+            height: 15,
+          ),
+          Row(
+            children: [
+              const SizedBox(
+                width: 20,
+              ),
+              Text(
+                'Overview',
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+            ],
+          ),
+          Chart(expenses: _registeredExpenses),
+          const SizedBox(
+            height: 15,
+          ),
+          Row(
+            children: [
+              const SizedBox(
+                width: 20,
+              ),
+              Text(
+                'Expense Bucket',
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+            ],
+          ),
           Expanded(
             child: mainContent,
           ),

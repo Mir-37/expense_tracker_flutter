@@ -200,6 +200,7 @@ class _NewExpenseState extends State<NewExpense> {
                         : formatter.format(
                             _selectedDate!,
                           ), // ! means never be null tell flutter
+                    style: Theme.of(context).textTheme.titleMedium,
                   ),
 
                   IconButton(
@@ -228,9 +229,7 @@ class _NewExpenseState extends State<NewExpense> {
                 width: 20,
               ),
               ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Theme.of(context).primaryColor,
-                ),
+                style: Theme.of(context).elevatedButtonTheme.style,
                 onPressed: () => {
                   // print(double.tryParse(_amountController.text)),
                   // print(_titleController.text),

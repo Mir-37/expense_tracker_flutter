@@ -13,21 +13,14 @@ class ExpenseItem extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-              color: kColorScheme.surfaceTint,
-              spreadRadius: 0.7,
-              blurRadius: 0.3,
-              offset: Offset.fromDirection(1.0),
-            ),
-          ],
-          // gradient: LinearGradient(
-          //   colors: [
-          //     kColorScheme.tertiaryFixedDim.withAlpha(95),
-          //     // kColorScheme.secondaryFixedDim.withAlpha(55),
-          //     kColorScheme.tertiaryFixedDim.withAlpha(150),
-          //   ],
-          // ),
+          gradient: LinearGradient(
+            colors: [
+              Theme.of(context).colorScheme.primary.withAlpha(79),
+              Theme.of(context).colorScheme.primary.withAlpha(0),
+            ],
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+          ),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(

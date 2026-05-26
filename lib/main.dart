@@ -25,8 +25,8 @@ void main() {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: kDarkColorScheme.tertiaryContainer,
-            // foregroundColor: kDarkColorScheme.onTertiaryContainer,
+            backgroundColor: kDarkColorScheme.primaryContainer,
+            foregroundColor: kDarkColorScheme.onPrimaryContainer,
           ),
         ),
         textTheme: ThemeData().textTheme.copyWith(
@@ -41,7 +41,10 @@ void main() {
           ),
           titleSmall: TextStyle(
             fontSize: 12,
-            color: Colors.black87,
+            color: Colors.white,
+          ),
+          headlineSmall: TextStyle(
+            color: const Color.fromARGB(255, 240, 237, 237),
           ),
         ),
       ),
@@ -62,7 +65,8 @@ void main() {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: kColorScheme.tertiaryContainer,
+            backgroundColor: kDarkColorScheme.secondaryContainer,
+            foregroundColor: kDarkColorScheme.onSecondaryContainer,
           ),
         ),
         textTheme: ThemeData().textTheme.copyWith(
@@ -73,11 +77,11 @@ void main() {
           ),
           titleMedium: TextStyle(
             fontSize: 14,
-            color: const Color.fromARGB(255, 240, 237, 237),
+            color: const Color.fromARGB(221, 36, 35, 35),
           ),
           titleSmall: TextStyle(
             fontSize: 12,
-            color: Colors.black87,
+            color: const Color.fromARGB(221, 36, 35, 35),
           ),
         ),
       ),
