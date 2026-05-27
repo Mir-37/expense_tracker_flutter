@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:udemy_flutter_4/widgets/chart/chart.dart';
+import 'package:udemy_flutter_4/widgets/chart/pie.dart';
 import 'package:udemy_flutter_4/widgets/expenses_list/expenses_list.dart';
 import 'package:udemy_flutter_4/models/expense.dart';
 import 'package:udemy_flutter_4/widgets/new_expense.dart';
@@ -134,7 +135,18 @@ class _ExpensesState extends State<Expenses> {
               ),
             ],
           ),
-          Chart(expenses: _registeredExpenses),
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: Chart(expenses: _registeredExpenses),
+                ),
+                Expanded(
+                  child: Pie(expenses: _registeredExpenses),
+                ),
+              ],
+            ),
+          ),
           const SizedBox(
             height: 15,
           ),
@@ -148,6 +160,9 @@ class _ExpensesState extends State<Expenses> {
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
             ],
+          ),
+          const SizedBox(
+            height: 10,
           ),
           Expanded(
             child: mainContent,
