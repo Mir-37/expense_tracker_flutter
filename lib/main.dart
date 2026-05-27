@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:udemy_flutter_4/widgets/expenses.dart';
+// import 'package:flutter/services.dart';
 
 var kColorScheme = ColorScheme.fromSeed(
   seedColor: Color.fromARGB(255, 96, 29, 181),
@@ -11,6 +12,10 @@ var kDarkColorScheme = ColorScheme.fromSeed(
 );
 
 void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
+  // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((
+  //   fn,
+  // ) {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -87,4 +92,5 @@ void main() {
       ),
     ),
   );
+  // });
 }
