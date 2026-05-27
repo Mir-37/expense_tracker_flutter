@@ -4,6 +4,9 @@ import 'package:udemy_flutter_4/widgets/chart/pie.dart';
 import 'package:udemy_flutter_4/widgets/expenses_list/expenses_list.dart';
 import 'package:udemy_flutter_4/models/expense.dart';
 import 'package:udemy_flutter_4/widgets/new_expense.dart';
+import 'package:udemy_flutter_4/widgets/responsive_widgets/overview_and_expenses_desktop.dart';
+import 'package:udemy_flutter_4/widgets/responsive_widgets/overview_and_expenses_mobile.dart';
+import 'package:udemy_flutter_4/widgets/responsive_widgets/overview_and_expenses_tablet.dart';
 
 class Expenses extends StatefulWidget {
   const Expenses({super.key});
@@ -82,6 +85,8 @@ class _ExpensesState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
     Widget mainContent = Center(
       child: Text(
         'No expenses found. Start adding some!',
@@ -119,56 +124,24 @@ class _ExpensesState extends State<Expenses> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          const SizedBox(
-            height: 15,
-          ),
-          Row(
-            children: [
-              const SizedBox(
-                width: 20,
-              ),
-              Text(
-                'Overview',
-                style: Theme.of(context).textTheme.headlineSmall,
-              ),
-            ],
-          ),
-          Expanded(
-            child: Row(
-              children: [
-                Expanded(
-                  child: Chart(expenses: _registeredExpenses),
-                ),
-                Expanded(
-                  child: Pie(expenses: _registeredExpenses),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          Row(
-            children: [
-              const SizedBox(
-                width: 20,
-              ),
-              Text(
-                'Expense Bucket',
-                style: Theme.of(context).textTheme.headlineSmall,
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Expanded(
-            child: mainContent,
-          ),
-        ],
-      ),
+      body: switch (width) {
+        > 1024 => OverviewAndExpensesDesktop(
+          mainContent: mainContent,
+          registeredExpenses: _registeredExpenses,
+        ),
+        <= 600 => OverviewAndExpensesMobile(
+          mainContent: mainContent,
+          registeredExpenses: _registeredExpenses,
+        ),
+        > 600 && <= 1024 => OverviewAndExpensesTablet(
+          mainContent: mainContent,
+          registeredExpenses: _registeredExpenses,
+        ),
+        _ => OverviewAndExpensesMobile(
+          mainContent: mainContent,
+          registeredExpenses: _registeredExpenses,
+        ),
+      },
     );
   }
 }

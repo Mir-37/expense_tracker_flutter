@@ -46,6 +46,8 @@ class _PieState extends State<Pie> {
   }
 
   List<PieChartSectionData> getSections(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
     List<PieChartSectionData> data = [];
 
     List<Color> colors = [
@@ -77,7 +79,7 @@ class _PieState extends State<Pie> {
 
           titlePositionPercentageOffset: 0.67,
 
-          radius: isTouched ? 150 : 130,
+          radius: isTouched ? 120 : 100,
 
           badgeWidget: Icon(
             categoryIcons[bucket.category],
@@ -96,7 +98,7 @@ class _PieState extends State<Pie> {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 1.5,
+      aspectRatio: 1,
       child: PieChart(
         PieChartData(
           centerSpaceRadius: 0,

@@ -31,14 +31,22 @@ class Chart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     final isDarkMode =
         MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Container(
-      margin: const EdgeInsets.fromLTRB(192, 2, 16, 16),
-      padding: const EdgeInsets.symmetric(
-        vertical: 16,
-        horizontal: 50,
-      ),
+      margin: width > 1024
+          ? const EdgeInsets.fromLTRB(192, 2, 16, 16)
+          : const EdgeInsets.fromLTRB(25, 25, 20, 20),
+      padding: width > 1024
+          ? const EdgeInsets.symmetric(
+              vertical: 16,
+              horizontal: 50,
+            )
+          : const EdgeInsets.symmetric(
+              vertical: 16,
+              horizontal: 8,
+            ),
       width: double.infinity,
       height: 180,
       decoration: BoxDecoration(
